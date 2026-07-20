@@ -1,0 +1,158 @@
+{
+  "name": "Mohammad Wasim Shekh",
+  "initials": "WS",
+  "title": "Financial Analyst · Business Analytics · Data Analytics · FP&A",
+  "tagline": "Finance & Analytics",
+  "location": "Waterford, NY",
+  "email": "ws415293@gmail.com",
+  "links": {
+    "github": "https://github.com/Mohammad-Shekh007",
+    "linkedin": "https://www.linkedin.com/in/mohammadwasimshekh/"
+  },
+  "resume": {
+    "file": "assets/resume/resume.pdf",
+    "downloadName": "Mohammad-Wasim-Shekh-Resume.pdf"
+  },
+  "summary": "I started in finance — a B.B.S. in Finance and two years inside a commercial bank in Nepal — then came to the U.S. and earned my degree of M.S. in Business Analytics (4.0 GPA). I learned the way to turn complex data into insights for decision making with modern tools and AI. This site is where I publish my work, so anyone evaluating me can see the thinking behind the resume bullets here.",
+  "bio": [
+    "My path into finance runs through a bank branch in Birgunj, Nepal. After finishing a B.B.S. in Finance at Tribhuvan University, I spent over two years at Prime Commercial Bank — supporting credit evaluations, verifying regulatory compliance, and reconciling high-volume transactions. It taught me how finance actually works at ground level: every number has a document behind it, and accuracy is not optional.",
+    "In 2023 I moved to the U.S. for an M.S. in Business Analytics at Siena University, graduating with a 4.0 GPA and Beta Gamma Sigma honors. Since then I've applied that toolkit in the real world: at the Siena Research Institute (previously: Siena College Research Institute), I prepared and analyzed national political, economic survey datasets, automated processes, and brought survey analytical and societal insights to stakeholders and public media; at PlugPV, a solar company, I help the management in strategic decision making by analyzing business data, building SQL-driven dashboards and milestone driven financial forecasting models, while also helping with automating operational processes with CRM/API integrations, AI automation research and assisting in optimizing internal application's workflows.",
+    "What I'm building toward is the seat where those two halves compound: financial / risk analysis and FP&A roles where quantitative skills, modeling judgment and data-driven approaches matter together. I've completed the Breaking Into Wall Street financial modeling certification, and every model and research piece on this site is part of the same commitment — learning finance deeply and building the bridge between finance and advanced-modern analytical technology."
+  ],
+  "education": [
+    {
+      "school": "Siena University",
+      "degree": "M.S. in Business Analytics",
+      "period": "Graduated May 2025",
+      "details": [
+        "GPA 4.0 / 4.0",
+        "Beta Gamma Sigma Honors — top 20% of graduate students",
+        "Focus: Descriptive Analytics, Diagonostic Analytics, Predictive Analystcs, Prescriptive Analytics, and AI for Business Decision Making"
+      ]
+    },
+    {
+      "school": "Tribhuvan University",
+      "degree": "B.B.S. in Finance",
+      "period": "Graduated December 2019",
+      "details": [
+        "Foundation in corporate finance, accounting, and financial statement analysis",
+        "Led directly to two years of hands-on banking experience at Prime Commercial Bank Ltd."
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Core Financial Modeling",
+      "org": "Breaking Into Wall Street",
+      "note": "Three-statement modeling and Discounted Cash Flow valuation courses completed."
+    }
+  ],
+  "experience": [
+    {
+      "company": "PlugPV, LLC",
+      "role": "IT Intern (Data & Analytics)",
+      "location": "Troy, NY",
+      "period": "Jan 2026 – Present",
+      "highlights": [
+        
+      ]
+    },
+    {
+      "company": "Siena Research Institute",
+      "role": "Data Analyst Intern",
+      "location": "Loudonville, NY",
+      "period": "Jul 2025 – Jan 2026",
+      "highlights": [
+       ]
+    },
+    {
+      "company": "Prime Commercial Bank Ltd.",
+      "role": "Assistant",
+      "location": "Birgunj, Nepal",
+      "period": "Jan 2021 – Apr 2023",
+      "highlights": [
+         ]
+    }
+  ],
+  "timeline": [
+    {
+      "period": "2019",
+      "title": "B.B.S. in Finance — Tribhuvan University",
+      "description": "Finance first: corporate finance, accounting, and financial statement analysis in Nepal."
+    },
+    {
+      "period": "2021 – 2023",
+      "title": "Prime Commercial Bank, Birgunj",
+      "description": "Two years inside a commercial bank — credit evaluation support, compliance verification, and high-volume reconciliation. Finance at ground level."
+    },
+    {
+      "period": "2023",
+      "title": "Moved to the U.S. for graduate school",
+      "description": "Chose an M.S. in Business Analytics at Siena University deliberately: the finance questions were already mine, the modern data toolkit wasn't yet."
+    },
+    {
+      "period": "2025",
+      "title": "M.S. Business Analytics — 4.0 GPA, Beta Gamma Sigma",
+      "description": "Graduated top of class, then joined the Siena College Research Institute analyzing national survey data with SQL, Python, and R."
+    },
+    {
+      "period": "2026",
+      "title": "PlugPV — and this knowledge hub",
+      "description": "Data integration, data Cleaning & mnagement, AI research, building dashboards, forecasts, and integrations at a solar company, and launching this site so the models and research have a permanent home."
+    },
+     {
+      "period": "2026",
+      "title": "Joined NY UPSTAT Statistics Committee",
+      "description": "Joined the NY UPSTAT committee as Early Professional Amabassador for NY UPSTAT conference 2026 and presented research on comparative analysis of Vector-based and Knowledge Graph RAG at the conference."
+    },
+     {
+      "period": "2026",
+      "title": "Back toward finance — BIWS",
+      "description": "Completed the Breaking Into Wall Street financial modeling certification alongside a growing shelf of projects."
+    }
+  ],
+  "interests": [
+    "Financial modeling & valuation",
+    "FP&A and cash flow forecasting",
+    "Portfolio optimization & risk analytics",
+    "Solar & renewable energy finance",
+    "AI for document analysis",
+    "Capital markets & equity research",
+    "Monte Carlo simulation"
+  ],
+  "goals": [
+    "Land a full-time analyst seat — Risk Analysis, FP&A, financial analysis, or corporate finance — where models carry real decisions, ideally in energy, banking, or another data-rich industry.",
+    "Deepen the valuation and modeling craft: BIWS complete and a growing portfolio of documented models on this site.",
+    "Keep publishing — every model, research piece, and market note here is a commitment to learning finance in public.",
+    "Long term: grow into roles that bridge finance and data teams, because the analysts who speak both languages are the ones who move decisions."
+  ],
+  "skills": {
+    "Finance": [
+      "Financial modeling",
+      "DCF valuation",
+      "3-statement modeling",
+      "Financial statement analysis",
+      "Cash flow forecasting"
+    ],
+    "Analytics": [
+      "Excel",
+      "SQL",
+      "Python",
+      "R",
+      "JMP",
+      "Power BI",
+      "Tableau",
+      "Zoho Analytics"
+    ],
+    "Modeling & Statistics": [
+      "Monte Carlo simulation",
+      "Time-series forecasting",
+      "Machine Learning",
+      "Hypothesis testing",
+      "Linear Optimization"
+    ],
+       "Artificial Intelligence": [
+      "Retrieval Augmented Generation (Vector-based & Knowledge Graph)"
+    ]
+  }
+}

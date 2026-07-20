@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Knowledge Hub · Wasim Shekh</title>
+  <meta name="description" content="Financial models, research, and market insights by Mohammad Wasim Shekh — a financial analyst who started in banking, mastered business analytics, and is building a career in finance.">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Finance Knowledge Hub · Wasim Shekh">
+  <meta property="og:description" content="Financial models, research, and market insights by Mohammad Wasim Shekh — a financial analyst who started in banking, mastered business analytics, and is building a career in finance.">
+  <meta property="og:url" content="https://wasimshekh.github.io/finance-knowledge-hub/">
+  <meta property="og:site_name" content="Finance Knowledge Hub">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Finance Knowledge Hub · Wasim Shekh">
+  <meta name="twitter:description" content="Financial models, research, and market insights by Mohammad Wasim Shekh — a financial analyst who started in banking, mastered business analytics, and is building a career in finance.">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Typography: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="home" data-root="./">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero on-dark" aria-labelledby="hero-heading">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow" id="hero-eyebrow"></p>
+          <h1 id="hero-heading"></h1>
+          <p class="hero-sub" id="hero-sub"></p>
+          <div class="hero-actions" id="hero-actions"></div>
+        </div>
+        <dl class="hero-stats" id="hero-stats"></dl>
+      </div>
+    </section>
+
+    <!-- Featured models -->
+    <section class="section" aria-labelledby="featured-models-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow" id="featured-models-eyebrow"></p>
+            <h2 id="featured-models-heading"></h2>
+          </div>
+          <a class="section-link" id="featured-models-link" href="pages/models.html"></a>
+        </div>
+        <div class="grid-cards" id="featured-models-grid"></div>
+      </div>
+    </section>
+
+    <!-- Latest research -->
+    <section class="section section-alt" aria-labelledby="latest-research-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow" id="latest-research-eyebrow"></p>
+            <h2 id="latest-research-heading"></h2>
+          </div>
+          <a class="section-link" id="latest-research-link" href="pages/research.html"></a>
+        </div>
+        <div class="grid-cards" id="latest-research-grid"></div>
+      </div>
+    </section>
+
+    <!-- Latest insights -->
+    <section class="section" aria-labelledby="latest-insights-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow" id="latest-insights-eyebrow"></p>
+            <h2 id="latest-insights-heading"></h2>
+          </div>
+          <a class="section-link" id="latest-insights-link" href="pages/insights.html"></a>
+        </div>
+        <div class="grid-cards" id="latest-insights-grid"></div>
+      </div>
+    </section>
+
+    <!-- About preview -->
+    <section class="section section-alt" aria-labelledby="about-preview-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow" id="about-preview-eyebrow"></p>
+            <h2 id="about-preview-heading"></h2>
+          </div>
+        </div>
+        <p class="text-muted" id="about-preview-text"></p>
+        <p class="section-cta">
+          <a class="btn btn-ghost" id="about-preview-link" href="pages/about.html"></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta-banner on-dark" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-inner">
+          <h2 id="cta-heading"></h2>
+          <p id="cta-body"></p>
+          <div class="cta-actions" id="cta-actions"></div>
+        </div>
+      </div>
+    </section>
+
+    <noscript>
+      <div class="container section">
+        <p>This site renders its content with JavaScript. Please enable JavaScript to view it.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script>
+    // ES modules and fetch() are blocked on the file:// protocol, which makes
+    // this page silently blank if the HTML file is double-clicked. Explain
+    // instead. (This text can't come from site.json here: JSON loading is
+    // exactly what file:// blocks.)
+    if (window.location.protocol === "file:") {
+      document.addEventListener("DOMContentLoaded", function () {
+        var main = document.querySelector("main");
+        if (!main) return;
+        var wrap = document.createElement("div");
+        wrap.className = "container section";
+        var notice = document.createElement("div");
+        notice.className = "notice";
+        var title = document.createElement("h2");
+        title.textContent = "This site needs a local web server";
+        var body = document.createElement("p");
+        body.textContent = "You opened this file directly from disk (file://), where browsers block the JavaScript modules and JSON data this site is built on. Serve the folder instead: in VS Code, right-click index.html and choose \u201cOpen with Live Server\u201d \u2014 or run \u201cpython -m http.server\u201d in the project folder and open http://localhost:8000. On GitHub Pages this works automatically.";
+        notice.appendChild(title);
+        notice.appendChild(body);
+        wrap.appendChild(notice);
+        main.insertBefore(wrap, main.firstChild);
+      });
+    }
+  </script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

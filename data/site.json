@@ -1,0 +1,134 @@
+{
+  "name": "Finance Knowledge Hub",
+  "titleSuffix": " · Wasim Shekh",
+  "description": "Financial models, research, and market insights by Mohammad Wasim Shekh — a financial analyst who started in banking, mastered business analytics, and is building a career in finance.",
+  "url": "https://wasimshekh.github.io/finance-knowledge-hub/",
+  "hero": {
+    "eyebrow": "Finance · Business Analytics · FP&A",
+    "heading": "How I think about markets, models, and money.",
+    "subheading": "A resume shows accomplishments. GitHub shows code. This site shows the thinking — financial models with documented assumptions, research, and honest notes on what I'm learning, from an analyst who started in banking, mastered analytics, and is building a career in finance.",
+    "actions": [
+      { "label": "Explore the models", "page": "models", "style": "primary" },
+      { "label": "More about me", "page": "about", "style": "secondary" }
+    ],
+    "stats": [
+      { "collection": "models", "label": "Financial Models, Fully Documented" },
+      { "collection": "research", "label": "Conference Research Presentations" },
+      { "value": "4.0", "label": "M.S. Business Analytics GPA" },
+      { "value": "1", "label": "Core Financial Modeling · BIWS Cert." }
+    ]
+  },
+  "home": {
+    "featuredModels": {
+      "eyebrow": "Financial models",
+      "heading": "Featured models",
+      "linkLabel": "View all models"
+    },
+    "latestResearch": {
+      "eyebrow": "Research",
+      "heading": "Latest research",
+      "linkLabel": "View all research"
+    },
+    "latestInsights": {
+      "eyebrow": "Market insights",
+      "heading": "Latest insights",
+      "linkLabel": "View all insights"
+    },
+    "aboutPreview": {
+      "eyebrow": "About",
+      "heading": "The analyst behind the work",
+      "linkLabel": "Read the full story"
+    },
+    "cta": {
+      "heading": "Evaluating candidates for a finance or analytics seat?",
+      "body": "Spend ten minutes with the models and research here — assumptions, methodology, and lessons learned are documented on every piece. If the thinking holds up, my resume and inbox are one click away.",
+      "primary": { "label": "View resume", "page": "resume" },
+      "secondaryLabel": "Email me"
+    }
+  },
+  "pages": {
+    "models": {
+      "eyebrow": "Portfolio",
+      "title": "Financial Models",
+      "intro": "Every model here was built from a blank workbook or an empty script. Each one documents the problem it answers, the assumptions behind it, the methodology step by step, and what I'd do differently next time."
+    },
+    "research": {
+      "eyebrow": "Deep dives",
+      "title": "Research",
+      "intro": "Longer-form analysis — from AI-assisted financial document analysis to market and sector economics. Each piece states its question up front, shows its method, and cites its sources."
+    },
+    "insights": {
+      "eyebrow": "Market notes",
+      "title": "Insights",
+      "intro": "Shorter observations on markets and finance — the patterns I notice while building models and reading filings. Less formal than research, but every claim still gets a number behind it."
+    },
+    "about": {
+      "eyebrow": "About",
+      "title": "About Me",
+      "intro": "From a bank branch in Nepal to business analytics in New York — a financial analyst who believes the best way to understand a business is to model it.",
+      "sections": {
+        "bio": "Background",
+        "experience": "Experience",
+        "education": "Education",
+        "certifications": "Certifications",
+        "timeline": "The path so far",
+        "skills": "Toolkit",
+        "interests": "Interests & focus areas",
+        "goals": "Where I'm headed"
+      }
+    },
+    "resume": {
+      "eyebrow": "Resume",
+      "title": "Resume",
+      "intro": "The one-page version of everything on this site. View it below or download the PDF.",
+      "downloadLabel": "Download resume (PDF)",
+      "fallback": "Your browser can't display embedded PDFs. Use the download button above to get the file."
+    }
+  },
+  "labels": {
+    "featured": "Featured",
+    "readMore": "Read more",
+    "github": "View on GitHub",
+    "backTo": {
+      "models": "All models",
+      "research": "All research",
+      "insights": "All insights"
+    },
+    "related": {
+      "models": "More models",
+      "research": "More research",
+      "insights": "More insights"
+    },
+    "sections": {
+      "overview": "Overview",
+      "problem": "The problem",
+      "approach": "Approach",
+      "methodology": "Methodology",
+      "results": "Results",
+      "lessons": "Lessons learned",
+      "metrics": "Key outputs",
+      "tools": "Built with",
+      "sources": "Sources",
+      "takeaway": "The takeaway"
+    },
+    "filterAll": "All topics",
+    "resultCount": "Showing {shown} of {total}",
+    "minuteRead": "min read",
+    "notFound": {
+      "title": "Content not found",
+      "body": "The item you're looking for doesn't exist or may have been moved."
+    },
+    "loadError": {
+      "title": "Something went wrong",
+      "body": "This page couldn't load its content. If you're opening the files directly from disk, serve the folder with a local server (for example, VS Code Live Server) — browsers block fetch() on the file:// protocol."
+    }
+  },
+  "footer": {
+    "blurb": "A knowledge hub of financial models, research, and market insights — built to show how I think, not just what I've done.",
+    "exploreHeading": "Explore",
+    "contactHeading": "Contact",
+    "note": "Built with plain HTML, CSS, and JavaScript — no frameworks, no build step.",
+    "githubLabel": "GitHub",
+    "linkedinLabel": "LinkedIn"
+  }
+}
