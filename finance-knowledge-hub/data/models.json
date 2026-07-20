@@ -1,0 +1,154 @@
+[
+  {
+    "id": "credit-default-prediction",
+    "title": "Credit Default Prediction",
+    "summary": "A logistic regression model that predicts loan default risk on the German Credit dataset, narrowing 20 candidate variables down to 6 statistically significant predictors through best-subset selection.",
+    "date": "2026-July",
+    "featured": true,
+    "tags": ["Logistic Regression", "Credit Risk", "Python"],
+    "github": "https://github.com/Mohammad-Shekh007/Credit-Default-Analysis",
+    "tools": ["Python", "statsmodels", "scikit-learn"],
+    "metrics": [
+      { "label": "Test AUC", "value": "0.714" },
+      { "label": "Variables selected", "value": "6 of 20" },
+      { "label": "Test misclassification rate", "value": "27.0%" }
+    ],
+    "sections": {
+      "overview": "A logistic regression model that estimates the probability a loan applicant will default, built on the classic German Credit dataset. The focus was on interpretability — arriving at a small set of variables where each one is statistically justified, not just whatever a black-box model happened to weight.",
+      "problem": "Which applicant and loan characteristics are genuinely, independently associated with credit default — and can a lean, interpretable model still separate good and bad credit risk reasonably well?",
+      "approach": "Rather than manual variable picking or a single stepwise pass, I used best-subset selection to search across combinations of all 20 original variables at once, treating each categorical variable as one unit rather than selecting individual category levels. I then layered a statistical significance check on top of the selected set to arrive at a final model where every remaining variable earns its place.",
+      "methodology": [
+        "Loaded the German Credit dataset (1,000 applicants, 20 predictor variables), log-transformed the two skewed continuous variables (loan amount, age), and one-hot encoded the categorical predictors.",
+        "Split the data 60/20/20 into train/validation/test, then ran best-subset selection (via the abess algorithm) across all 20 variables, cross-validating to choose how many to keep.",
+        "Refit the selected variables in an unpenalized logistic regression to get real p-values and odds ratios, then iteratively removed any variable that wasn't statistically significant, refitting until everything remaining cleared p < 0.05.",
+        "Checked the final model for multicollinearity with VIF, then evaluated discrimination (ROC AUC) and error rate separately on held-out validation and test sets."
+      ],
+      "results": {
+        "summary": "The final model kept 6 of the original 20 variables — loan amount, age, checking account balance, credit history, loan purpose, and installment plan — each statistically significant, with no meaningful multicollinearity between them.",
+        "points": [
+          "Test set ROC AUC of 0.714, with train (0.790) and validation (0.778) close behind, indicating stable, non-overfit discrimination.",
+          "Misclassification rate held steady between 23.5% and 27% across train, validation, and test.",
+          "Reduced 20 candidate variables to 6 significant predictors using best-subset selection rather than a manual or purely stepwise search."
+        ]
+      },
+      "lessons": [
+        "Best-subset selection with grouped categorical variables avoided the awkward 'some category levels survive, others don't' problem that methods like Lasso can create.",
+        "Statistical significance is context-dependent, not absolute — one variable lost significance only after other correlated variables were removed, a good reminder that a p-value describes a variable's role in a specific model, not a fixed property of the variable itself."
+      ]
+    }
+},
+  {
+    "id": "investment-portfolio-optimization",
+    "title": "Investment Portfolio Optimization using Linear Optimization and Monte Carlo Simulation",
+    "summary": "A wealth-management portfolio model that uses Excel Solver to find the return-maximizing asset mix under diversification constraints, then stress-tests it against an alternative portfolio with 1,000 Monte Carlo scenarios.",
+    "date": "2026-June",
+    "featured": true,
+    "tags": ["Portfolio Optimization", "Monte Carlo Simulation", "Excel"],
+    "github": "https://github.com/Mohammad-Shekh007/Investment-Portfolio-Optimization",
+    "tools": ["Excel", "Excel Solver", "Monte Carlo Simulation"],
+    "metrics": [
+      { "label": "Portfolio 1 expected monthly return", "value": "4.68%" },
+      { "label": "Asset classes modeled", "value": "8" },
+      { "label": "Monte Carlo scenarios", "value": "1,000" }
+    ],
+    "sections": {
+      "overview": "A wealth-management portfolio optimization model built on 15 years of historical monthly return data (2010–2025) across eight asset classes — U.S. equities, small-caps, international developed markets, real estate, gold, bonds, and short-term treasuries — combining Excel Solver optimization with Monte Carlo simulation to test how robust the optimal allocation is under uncertainty.",
+      "problem": "Given a fixed set of investment-policy constraints — exactly 5 holdings, a cap on growth-asset exposure, a minimum income-asset requirement, and defensive exposure at least equal to growth exposure — which combination of assets maximizes expected monthly return, and does that choice hold up once returns are treated as uncertain rather than fixed?",
+      "approach": "Rather than relying on a single point-estimate optimization, I built two optimized portfolios under different diversification rules, then stress-tested both with a 1,000-scenario Monte Carlo simulation to see whether the optimizer's top pick remained the better choice once market uncertainty was modeled directly.",
+      "methodology": [
+        "Collected historical monthly returns (2010–2025) for eight asset classes (SPY, QQQ, IWM, VEA, VNQ, GLD, BND, TB3MS), estimating expected return from historical averages and risk from historical standard deviation.",
+        "Used Excel Solver to build Portfolio 1: the expected-return-maximizing combination of exactly 5 assets, subject to growth/income/defensive composition constraints.",
+        "Built Portfolio 2 as an alternative by adding a diversification constraint capping overlap with Portfolio 1 at 3 shared assets, producing a second optimal portfolio for comparison.",
+        "Ran a 1,000-scenario Monte Carlo simulation on both portfolios to compare average simulated return, volatility, and the probability that Portfolio 1 outperforms Portfolio 2 under uncertainty."
+      ],
+      "results": {
+        "summary": "Portfolio 1 (SPY, QQQ, VNQ, GLD, BND) outperformed Portfolio 2 (QQQ, IWM, VNQ, GLD, TB3MS) both in the point-estimate optimization and across simulated scenarios, though by a narrow enough margin that both portfolios are reasonable choices.",
+        "points": [
+          "Portfolio 1 achieved a 4.68% expected monthly return versus 4.45% for Portfolio 2.",
+          "Across 1,000 simulated scenarios, Portfolio 1 averaged a 4.23% return (9.59% SD) versus Portfolio 2's 4.15% (10.35% SD).",
+          "Portfolio 1 outperformed Portfolio 2 in 51.2% of simulated scenarios — a real but narrow edge."
+        ]
+      },
+      "lessons": [
+        "An optimizer can pick the higher point-estimate return with full confidence, but simulation shows how much of that edge survives under uncertainty — here, a clear optimization win narrowed to close to a coin flip (51.2%) at the scenario level.",
+        "Adding a diversification constraint produced a genuinely different but still competitive portfolio, a reminder that there's rarely one 'correct' allocation — just different reasonable trade-offs between concentration and diversification."
+      ]
+    }
+},
+  {
+    "id": "investment-portfolio-stress-testing",
+    "title": "Investment Portfolio Stress Testing",
+    "summary": "An Excel-based stress testing framework that measures how a diversified equities/bonds/cash portfolio would have performed during the 2008 financial crisis, the 2020 COVID crash, and the 2022 inflationary bear market.",
+    "date": "2026-June",
+    "featured": true,
+    "tags": ["Stress Testing", "Risk Management", "Excel"],
+    "github": "https://github.com/Mohammad-Shekh007/Investment-Portfolio-Stress-Testing",
+    "tools": ["Excel", "Historical Market Data Analysis"],
+    "metrics": [
+      { "label": "Historical events tested", "value": "3" },
+      { "label": "Data range", "value": "2007–2026" },
+      { "label": "Max drawdown (worst event)", "value": "ADD YOUR NUMBER" }
+    ],
+    "sections": {
+      "overview": "A stress testing framework, built in Excel, that evaluates how a diversified portfolio — allocated across U.S. equities (SPY), fixed income (BND), and cash equivalents (TB3MS) — would have held up during three of the most severe market downturns of the last two decades, using monthly historical data from May 2007 through May 2026.",
+      "problem": "How resilient is a given equities/bonds/cash allocation during periods of severe market stress, and how long does it typically take a portfolio to recover its prior peak value after a major drawdown?",
+      "approach": "Rather than relying on long-run average returns, which can mask how badly a portfolio behaves during acute crises, I built a framework that isolates three specific historical stress windows and measures drawdown and recovery directly within each one — a more conservative, scenario-based view of risk than a standard volatility metric provides.",
+      "methodology": [
+        "Collected monthly historical data for SPY, BND, and TB3MS from Yahoo Finance and FRED, covering May 2007 through May 2026.",
+        "Built a user-defined portfolio allocation across equities, bonds, and cash, and calculated monthly portfolio returns as the weighted average of the underlying asset returns, applied to an initial investment value to simulate portfolio growth over time.",
+        "Identified three major stress periods — the 2008 Global Financial Crisis, the 2020 COVID-19 crash, and the 2022 inflationary bear market — and isolated portfolio performance within each window.",
+        "For each stress event, calculated maximum drawdown (largest peak-to-trough decline), recovery period (months to return to the prior peak), and recovery return (the percentage gain needed from the trough to get back to that peak)."
+      ],
+      "results": {
+        "summary": "Add a short paragraph here summarizing the drawdown and recovery numbers from your Excel model — e.g., which event produced the deepest drawdown, and which took longest to recover from.",
+        "points": [
+          "Add a concrete number, e.g., 'Maximum drawdown of X% during the 2008 crisis.'",
+          "Add a concrete number, e.g., 'Portfolio recovered to its prior peak in Y months following the 2020 crash.'"
+        ]
+      },
+      "lessons": [
+        "Long-run average returns can look reassuring while hiding how painful specific crisis periods actually were — isolating individual stress events gives a much more honest picture of downside risk.",
+        "Add a personal takeaway here — e.g., something about how diversification behaved differently across the three events, or a limitation of using only three assets to represent a portfolio."
+      ]
+    }
+},
+{
+    "id": "knowledge-graph-rag",
+    "title": "Knowledge Graph vs. Vector RAG: A Graph-Based Retrieval Chatbot",
+    "summary": "A Streamlit chatbot that answers questions by reasoning over a Neo4j knowledge graph rather than plain vector similarity — the knowledge-graph implementation from a broader comparative RAG study presented at NY UPSTATE 2026.",
+    "date": "2026-March",
+    "featured": true,
+    "tags": ["RAG", "Knowledge Graphs", "LLM", "Neo4j"],
+    "github": "https://github.com/Mohammad-Shekh007/Knowledge-Graph-RAG/tree/main",
+    "tools": ["Neo4j", "OpenAI (GPT-4o-mini)", "Streamlit", "Python"],
+    "metrics": [
+      { "label": "Pipeline stages", "value": "7" },
+      { "label": "Max reasoning hops", "value": "2" },
+      { "label": "Demo domain", "value": "COVID-19 KG" }
+    ],
+    "sections": {
+      "overview": "This repository implements the knowledge-graph half of a broader comparative study of vector-based versus graph-based retrieval-augmented generation, presented at NY UPSTATE 2026. It's a Streamlit chatbot that answers questions by traversing an explicit Neo4j knowledge graph — built here on a COVID-19 dataset — instead of relying solely on semantic similarity search. A live demo is deployed and linked in the repo.",
+      "problem": "Standard vector RAG retrieves text by similarity, but struggles with three things: understanding how entities are actually connected, tracing multi-step cause-and-effect chains, and explaining why a given answer was produced rather than just reporting a similarity score. The research question was whether representing knowledge explicitly as a graph of typed relationships could address those three gaps, and how that approach compares against a standard vector-retrieval baseline.",
+      "approach": "The conference work compared a vector-retrieval baseline against a graph-based pipeline built specifically to support multi-hop reasoning and auditability; this repo contains the graph-based system. It treats vector and graph retrieval as complementary rather than competing — vector similarity is still used for one step (matching a query to relevant entities), but the actual reasoning proceeds by traversing typed, explicit relationships in the graph, producing an answer with a visible chain of evidence rather than an opaque similarity match. The full comparative results are detailed in the accompanying conference presentation included in the repo.",
+      "methodology": [
+        "Rewrite and expand the user's query into retrieval-friendly phrasings (GPT-4o-mini) to widen recall against graph terminology.",
+        "Run hybrid entity retrieval — Neo4j vector similarity search over entity embeddings, combined with keyword/substring matching — to identify the relevant nodes in the graph.",
+        "Retrieve 1-hop neighbor facts for matched entities, then explicitly traverse 2-hop paths to surface multi-step cause-effect and dependency chains.",
+        "Rerank the retrieved facts and paths with an LLM to keep only the evidence most relevant to the query, then generate an answer constrained to that evidence, with citations and a full debug trace exposed in the UI."
+      ],
+      "results": {
+        "summary": "The graph-based pipeline produces answers grounded in explicit, inspectable evidence chains rather than similarity scores, directly addressing the multi-hop reasoning and explainability gaps that motivated the comparative study. Quantitative comparison metrics against the vector-RAG baseline are presented in the accompanying conference presentation.",
+        "points": [
+          "Every answer is generated only from retrieved facts/paths and returned alongside the specific evidence used, reducing hallucination.",
+          "A full pipeline trace — rewritten query, expansions, retrieved entities, facts, and paths — is exposed via a debug panel for inspection.",
+          "Deployed as a live, publicly accessible demo rather than a local-only notebook."
+        ]
+      },
+      "lessons": [
+        "A knowledge graph's usefulness is only as good as the extraction step that built it — this project focused on the retrieval/reasoning layer, and graph quality remains the main bottleneck for scaling to new domains.",
+        "Vector and graph retrieval aren't really competitors — the strongest version of this system used vector similarity for entity matching and graph traversal for reasoning, rather than picking one exclusively."
+      ]
+    }
+}
+
+]
