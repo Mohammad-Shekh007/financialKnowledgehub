@@ -13,11 +13,12 @@
     "file": "assets/resume/resume.pdf",
     "downloadName": "Mohammad-Wasim-Shekh-Resume.pdf"
   },
-  "summary": "I started in finance — a B.B.S. in Finance and two years inside a commercial bank in Nepal — then came to the U.S. and earned my degree of M.S. in Business Analytics (4.0 GPA). I learned the way to turn complex data into insights for decision making with modern tools and AI. This site is where I publish my work, so anyone evaluating me can see the thinking behind the resume bullets here.",
+  "summary": "I build data-driven solutions that help organizations make better business decisions. My background combines finance, business analytics, and AI—from commercial banking and financial modeling to SQL dashboards, predictive analytics, process automation, and applied machine learning. Across research, renewable energy, and financial services, I've worked on transforming complex data into actionable insights that improve operational efficiency and support strategic decision-making. This website serves as both my portfolio and knowledge hub, documenting projects in analytics, finance, AI, and business intelligence that demonstrate not only technical implementation but also the thinking behind each solution.",
   "bio": [
-    "My path into finance runs through a bank branch in Birgunj, Nepal. After finishing a B.B.S. in Finance at Tribhuvan University, I spent over two years at Prime Commercial Bank — supporting credit evaluations, verifying regulatory compliance, and reconciling high-volume transactions. It taught me how finance actually works at ground level: every number has a document behind it, and accuracy is not optional.",
-    "In 2023 I moved to the U.S. for an M.S. in Business Analytics at Siena University, graduating with a 4.0 GPA and Beta Gamma Sigma honors. Since then I've applied that toolkit in the real world: at the Siena Research Institute (previously: Siena College Research Institute), I prepared and analyzed national political, economic survey datasets, automated processes, and brought survey analytical and societal insights to stakeholders and public media; at PlugPV, a solar company, I help the management in strategic decision making by analyzing business data, building SQL-driven dashboards and milestone driven financial forecasting models, while also helping with automating operational processes with CRM/API integrations, AI automation research and assisting in optimizing internal application's workflows.",
-    "What I'm building toward is the seat where those two halves compound: financial / risk analysis and FP&A roles where quantitative skills, modeling judgment and data-driven approaches matter together. I've completed the Breaking Into Wall Street financial modeling certification, and every model and research piece on this site is part of the same commitment — learning finance deeply and building the bridge between finance and advanced-modern analytical technology."
+    "I began my career in commercial banking, where I learned that every business decision depends on accurate data, disciplined processes, and sound financial judgment. Working with reconciliations, regulatory compliance, customer operations, and financial documentation gave me a strong understanding of how organizations manage risk and maintain operational integrity.",
+    "Wanting to combine that business foundation with modern analytical methods, I pursued an M.S. in Business Analytics at Siena University, graduating with a 4.0 GPA and Beta Gamma Sigma honors. There I developed expertise in statistics, SQL, Python, R, data visualization, predictive analytics, and AI-driven approaches for solving real business problems.",
+    "I have since applied these skills across research and industry. At the Siena Research Institute, I analyzed large-scale national survey datasets, developed automated analytical workflows, applied statistical methodologies to improve data quality, and transformed complex findings into insights used by researchers, media, and public stakeholders. At PlugPV, I contribute to business analytics, AI, and data engineering initiatives by developing SQL-driven dashboards, forecasting models, and API-based automation, while supporting the design of database schemas and data architecture for internal applications and production Retrieval-Augmented Generation (RAG) workflows and assisting with AI workflow optimization processes. Alongside my industry experience, I have conducted research on Vector-based and Knowledge Graph RAG architectures for critical document analysis, exploring approaches to improve AI reliability and reduce hallucinations in enterprise applications.",
+    "To further strengthen my finance expertise, I completed the Breaking Into Wall Street (BIWS) Core Financial Modeling program, building advanced skills in three-statement modeling, discounted cash flow (DCF) valuation, and financial analysis. Combined with my experience in analytics and AI, it reflects the direction of my career: bridging business core fundamentals, finance, data, and intelligent technologies to solve complex business problems and support better decision-making."
   ],
   "education": [
     {
@@ -61,7 +62,7 @@
       "company": "Siena Research Institute",
       "role": "Data Analyst Intern",
       "location": "Loudonville, NY",
-      "period": "Jul 2025 – Jan 2026",
+      "period": "June 2024 – Dec 2024 | July 2025 – Jan 2026",
       "highlights": [
        ]
     },
@@ -78,81 +79,101 @@
     {
       "period": "2019",
       "title": "B.B.S. in Finance — Tribhuvan University",
-      "description": "Finance first: corporate finance, accounting, and financial statement analysis in Nepal."
+      "description": "Built a foundation in finance, accounting, and business operations through a Bachelor's degree in Finance."
     },
     {
       "period": "2021 – 2023",
       "title": "Prime Commercial Bank, Birgunj",
-      "description": "Two years inside a commercial bank — credit evaluation support, compliance verification, and high-volume reconciliation. Finance at ground level."
+      "description": "Applied financial controls, compliance, reconciliation, and operational processes in commercial banking."
     },
     {
-      "period": "2023",
-      "title": "Moved to the U.S. for graduate school",
-      "description": "Chose an M.S. in Business Analytics at Siena University deliberately: the finance questions were already mine, the modern data toolkit wasn't yet."
-    },
-    {
-      "period": "2025",
-      "title": "M.S. Business Analytics — 4.0 GPA, Beta Gamma Sigma",
-      "description": "Graduated top of class, then joined the Siena College Research Institute analyzing national survey data with SQL, Python, and R."
-    },
-    {
-      "period": "2026",
-      "title": "PlugPV — and this knowledge hub",
-      "description": "Data integration, data Cleaning & mnagement, AI research, building dashboards, forecasts, and integrations at a solar company, and launching this site so the models and research have a permanent home."
-    },
-     {
-      "period": "2026",
-      "title": "Joined NY UPSTAT Statistics Committee",
-      "description": "Joined the NY UPSTAT committee as Early Professional Amabassador for NY UPSTAT conference 2026 and presented research on comparative analysis of Vector-based and Knowledge Graph RAG at the conference."
-    },
-     {
-      "period": "2026",
-      "title": "Back toward finance — BIWS",
-      "description": "Completed the Breaking Into Wall Street financial modeling certification alongside a growing shelf of projects."
-    }
-  ],
-  "interests": [
-    "Financial modeling & valuation",
-    "FP&A and cash flow forecasting",
-    "Portfolio optimization & risk analytics",
-    "Solar & renewable energy finance",
-    "AI for document analysis",
-    "Capital markets & equity research",
-    "Monte Carlo simulation"
-  ],
-  "goals": [
-    "Land a full-time analyst seat — Risk Analysis, FP&A, financial analysis, or corporate finance — where models carry real decisions, ideally in energy, banking, or another data-rich industry.",
-    "Deepen the valuation and modeling craft: BIWS complete and a growing portfolio of documented models on this site.",
-    "Keep publishing — every model, research piece, and market note here is a commitment to learning finance in public.",
-    "Long term: grow into roles that bridge finance and data teams, because the analysts who speak both languages are the ones who move decisions."
-  ],
-  "skills": {
-    "Finance": [
-      "Financial modeling",
-      "DCF valuation",
-      "3-statement modeling",
-      "Financial statement analysis",
-      "Cash flow forecasting"
-    ],
-    "Analytics": [
-      "Excel",
-      "SQL",
-      "Python",
-      "R",
-      "JMP",
-      "Power BI",
-      "Tableau",
-      "Zoho Analytics"
-    ],
-    "Modeling & Statistics": [
-      "Monte Carlo simulation",
-      "Time-series forecasting",
-      "Machine Learning",
-      "Hypothesis testing",
-      "Linear Optimization"
-    ],
-       "Artificial Intelligence": [
-      "Retrieval Augmented Generation (Vector-based & Knowledge Graph)"
-    ]
-  }
+  "period": "2023 – 2025",
+  "title": "M.S. Business Analytics — Siena University",
+  "description": "Pursued graduate studies focused on statistics, business analytics, data science, and AI-driven decision making. Graduated with a 4.0 GPA and Beta Gamma Sigma honors while gaining hands-on experience through analytics and research roles at Siena."
+},
+{
+  "period": "June 2024 – Dec 2024",
+  "title": "Data Analyst Intern — Siena Research Institute",
+  "description": "Analyzed large-scale national survey datasets, applied statistical methodologies, automated analytical workflows, and transformed research findings into insights used by researchers, media, and public stakeholders."
+},
+{
+  "period": "Sep 2024 – May 2025",
+  "title": "Graduate Research Assistant — Siena University, Office of Institutional Effectiveness",
+  "description": "Supported the Office of Institutional Effectiveness by analyzing academic and student data, developing reports, validating institutional datasets, and supporting data-driven student success initiatives."
+},
+{
+  "period": "Jul 2025 – Jan 2026",
+  "title": "Data Analyst Intern — Siena Research Institute",
+  "description": "Returned to the Siena Research Institute after graduation to continue applying analytics skills through survey analysis, statistical reporting, workflow automation, and data-driven insights."
+},
+{
+  "period": "2026",
+  "title": "PlugPV — Business Analytics, AI & Data Engineering",
+  "description": "Contribute to analytics and technology initiatives through SQL dashboards, forecasting models, API integrations, database architecture, and Retrieval-Augmented Generation (RAG) workflows supporting business decision-making."
+},
+{
+  "period": "2026",
+  "title": "NY UPSTAT Conference",
+  "description": "Served as an Early Professional Ambassador and presented research comparing Vector-based and Knowledge Graph Retrieval-Augmented Generation (RAG) architectures for improving enterprise document analysis."
+},
+{
+  "period": "2026",
+  "title": "Breaking Into Wall Street — Financial Modeling",
+  "description": "Completed the Core Financial Modeling program, strengthening expertise in three-statement modeling, DCF valuation, financial analysis, and corporate finance."
 }
+  ],
+ "interests": [
+  "Business analytics & decision science",
+  "Financial modeling, valuation & forecasting",
+  "Risk analytics & quantitative analysis",
+  "Predictive analytics and statistical modeling",
+  "Artificial intelligence for business applications",
+  "Data-driven process automation & business intelligence",
+  "Renewable energy analytics and finance",
+  "Capital markets and investment analytics",
+  "Optimization, simulation & advanced analytics"
+],
+  "goals": [
+  "Build a career solving complex business problems by combining analytics, financial understanding, and emerging technologies to support better decisions.",
+  "Continue building and publishing projects that demonstrate practical applications of analytics, finance, and AI across real-world business challenges.",
+  "Grow into roles that connect business objectives with technical solutions, helping organizations transform data into actionable insights."
+],
+  "skills": {
+  "Analytics & Data": [
+    "SQL",
+    "Python",
+    "R",
+    "Excel",
+    "Power BI",
+    "Tableau",
+    "Zoho Analytics",
+    "Data Visualization",
+    "Business Intelligence"
+  ],
+  "Finance & Modeling": [
+    "Financial modeling",
+    "DCF valuation",
+    "3-statement modeling",
+    "Financial statement analysis",
+    "Cash flow forecasting",
+    "Variance analysis"
+  ],
+  "Modeling & Statistics": [
+    "Monte Carlo simulation",
+    "Time-series forecasting",
+    "Machine Learning",
+    "Regression Analysis",
+    "Hypothesis testing",
+    "Linear Optimization",
+    "Correlation Analysis"
+  ],
+  "Artificial Intelligence & Automation": [
+    "Retrieval-Augmented Generation (Vector-based & Knowledge Graph)",
+    "AI workflow design",
+    "REST API integrations",
+    "Data architecture for AI applications"
+  ]
+}
+    
+  }
+
