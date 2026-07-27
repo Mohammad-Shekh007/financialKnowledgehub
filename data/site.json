@@ -1,12 +1,12 @@
 {
-  "name": "Finance Knowledge Hub",
+  "name": "Knowledge Hub",
   "titleSuffix": " · Wasim Shekh",
-  "description": "Financial models, research, and market insights by Mohammad Wasim Shekh — a financial analyst who started in banking, mastered business analytics, and is building a career in finance.",
+  "description": "A portfolio of analytics projects and research by Mohammad Wasim Shekh — exploring how finance, data, and emerging technologies can be applied to solve real-world business problems.",
   "url": "https://wasimshekh.github.io/finance-knowledge-hub/",
   "hero": {
-    "eyebrow": "Finance · Business Analytics · FP&A",
-    "heading": "How I think about markets, models, and money.",
-    "subheading": "A resume shows accomplishments. GitHub shows code. This site shows the thinking — financial models with documented assumptions, research, and honest notes on what I'm learning, from an analyst who started in banking, mastered analytics, and is building a career in finance.",
+    "eyebrow": "Business Analytics · Finance · Data Science · AI",
+    "heading": "How I use models, data, and technology to understand businesses and solve complex problems.",
+    "subheading": "A resume shows accomplishments. GitHub shows code. This site shows the thinking behind the work — financial models, analytics projects, research, and AI explorations with documented assumptions, methodologies, and lessons learned. From a foundation in banking and finance to business analytics and emerging technologies, this is where I share how I approach complex business problems.",
     "actions": [
       { "label": "Explore the models", "page": "models", "style": "primary" },
       { "label": "More about me", "page": "about", "style": "secondary" }
@@ -40,8 +40,8 @@
       "linkLabel": "Read the full story"
     },
     "cta": {
-      "heading": "Evaluating candidates for a finance or analytics seat?",
-      "body": "Spend ten minutes with the models and research here — assumptions, methodology, and lessons learned are documented on every piece. If the thinking holds up, my resume and inbox are one click away.",
+      "heading": "Evaluating candidates for analytics, finance, AI or data-driven role?",
+      "body": "Spend ten minutes with the models and research here — assumptions, methodology, and lessons learned are documented on every piece. If the thinking holds up, my email inbox is one click away.",
       "primary": { "label": "View resume", "page": "resume" },
       "secondaryLabel": "Email me"
     }
@@ -49,7 +49,7 @@
   "pages": {
     "models": {
       "eyebrow": "Portfolio",
-      "title": "Financial Models",
+      "title": "Models",
       "intro": "Every model here was built from a blank workbook or an empty script. Each one documents the problem it answers, the assumptions behind it, the methodology step by step, and what I'd do differently next time."
     },
     "research": {
@@ -58,14 +58,15 @@
       "intro": "Longer-form analysis — from AI-assisted financial document analysis to market and sector economics. Each piece states its question up front, shows its method, and cites its sources."
     },
     "insights": {
-      "eyebrow": "Market notes",
+      "eyebrow": "Perspectives",
       "title": "Insights",
-      "intro": "Shorter observations on markets and finance — the patterns I notice while building models and reading filings. Less formal than research, but every claim still gets a number behind it."
+      "intro": "Short-form analysis on finance, business, data, and technology — exploring patterns, trends, and ideas that emerge while building models, analyzing datasets, and studying real-world business problems. Each insight is grounded in research, evidence, and a data-driven perspective."
+
     },
     "about": {
       "eyebrow": "About",
       "title": "About Me",
-      "intro": "From a bank branch in Nepal to business analytics in New York — a financial analyst who believes the best way to understand a business is to model it.",
+      "intro": "From a bank branch in Nepal to business analytics in New York — a finance-trained analytics professional who believes the best way to understand a business is to analyze it, model it, and continuously improve it.",
       "sections": {
         "bio": "Background",
         "experience": "Experience",
@@ -124,7 +125,7 @@
     }
   },
   "footer": {
-    "blurb": "A knowledge hub of financial models, research, and market insights — built to show how I think, not just what I've done.",
+    "blurb": "A knowledge hub of financial models, analytics projects, research, and AI explorations — built to show how I think, not just what I've done.",
     "exploreHeading": "Explore",
     "contactHeading": "Contact",
     "note": "Built with plain HTML, CSS, and JavaScript — no frameworks, no build step.",
