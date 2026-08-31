@@ -1,4 +1,42 @@
-[
+[{
+    "id": "bayesian-black-scholes-option-pricing",
+    "title": "Bayesian Volatility + Monte Carlo Black-Scholes Option Pricing",
+    "summary": "Prices a real, currently-traded AAPL call option by treating volatility as uncertain rather than fixed — building a Bayesian posterior over volatility from comparable-stock data and AAPL's own returns, then propagating 10,000 posterior samples through Black-Scholes and checking the result against the real market price.",
+    "date": "2026-August",
+    "featured": true,
+    "tags": ["Bayesian Inference", "Options Pricing", "Monte Carlo Simulation", "Python"],
+    "github": "https://github.com/Mohammad-Shekh007/Bayesian-Volatility-Monte-Carlo-Black-Scholes-Option-Pricing",
+    "tools": ["Python", "yfinance", "NumPy", "SciPy", "Matplotlib"],
+    "metrics": [
+      { "label": "Monte Carlo simulations", "value": "10,000" },
+      { "label": "Posterior annualized volatility", "value": "27.5%" },
+      { "label": "Simulated mean vs. real market price", "value": "$10.99 vs. $10.00" }
+    ],
+    "sections": {
+      "overview": "A Bayesian extension of the Black-Scholes model that treats volatility as an uncertain quantity with its own probability distribution, rather than a single fixed guess. The distribution is built through a conjugate Bayesian update, sampled 10,000 times via Monte Carlo, and run through Black-Scholes to produce a full distribution of option prices — validated against a real, live AAPL option contract.",
+      "problem": "Standard Black-Scholes requires one volatility number and returns one price, with no way to express how confident that estimate actually is. The question here was whether a defensible, closed-form Bayesian model could produce a realistic range of option prices instead of a single point estimate — and whether that range would actually contain the real market price.",
+      "approach": "Rather than estimating AAPL's volatility from its own historical data alone (which risks circularity when that same data is later used as evidence), I built the prior from four comparable large-cap tech stocks — Microsoft, Google, Meta, and Amazon — over the same period, then updated it with AAPL's own 125 daily returns using a conjugate Bayesian model for unknown variance. This keeps the prior and the evidence genuinely independent while still landing on a closed-form, exact posterior.",
+      "methodology": [
+        "Pulled 6 months of daily price data for AAPL and 4 comparable stocks, and calculated daily returns for each.",
+        "Built an empirical Bayes prior from the 4 comparable stocks' volatilities, and combined it with AAPL's own 125 daily returns using a Normal-Scaled-Inverse-Chi-Squared conjugate update — the standard closed-form Bayesian model for unknown variance.",
+        "Drew 10,000 volatility values from the resulting posterior distribution via Monte Carlo sampling.",
+        "Pulled AAPL's real spot price, the 13-week Treasury yield as the risk-free rate, and an actual currently-traded AAPL call option (strike and expiration), then ran Black-Scholes once per sampled volatility to produce a distribution of 10,000 simulated option prices.",
+        "Compared the simulated price distribution against the option's real, live market price as a validation check."
+      ],
+      "results": {
+        "summary": "The posterior volatility estimate (27.5% annualized) landed close to the option's own market-implied volatility (26.6%), and the real market price of the option fell just inside the lower edge of the simulated 10,000-price distribution.",
+        "points": [
+          "Posterior annualized volatility of 27.5%, versus the market's own implied volatility of 26.6% for the same contract.",
+          "Simulated mean call price of $10.99, with a 90% simulated range of $9.97–$12.11.",
+          "Real market price of $10.00 fell inside that simulated range, close to the lower bound."
+        ]
+      },
+      "lessons": [
+        "Using a stock's own historical data to build its own Bayesian prior is circular if that same data is later reused as evidence — building the prior from comparable stocks instead avoids double-counting the same information.",
+        "A conjugate Bayesian model was deliberately chosen over a more complex stochastic-volatility/MCMC approach — the closed-form solution is exact and fully verifiable rather than approximate, and the assumptions justified the simpler choice."
+      ]
+    }
+},
   {
     "id": "credit-default-prediction",
     "title": "Credit Default Prediction",
