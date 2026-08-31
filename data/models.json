@@ -4,7 +4,7 @@
     "title": "Knowledge Graph vs. Vector RAG: A Graph-Based Retrieval Chatbot",
     "summary": "A Streamlit chatbot that answers questions by reasoning over a Neo4j knowledge graph rather than plain vector similarity — the knowledge-graph implementation from a broader comparative RAG study presented at NY UPSTATE 2026.",
     "date": "2026-March",
-    "featured": true,
+    "featured": false,
     "tags": ["RAG", "Knowledge Graphs", "LLM", "Neo4j"],
     "github": "https://github.com/Mohammad-Shekh007/Knowledge-Graph-RAG/tree/main",
     "tools": ["Neo4j", "OpenAI (GPT-4o-mini)", "Streamlit", "Python"],
@@ -37,6 +37,48 @@
       ]
     }
 }, 
+  {
+    "id": "tesla-stock-return-predictive-modeling",
+    "title": "Tesla Stock Return Predictive Modeling",
+    "summary": "Builds and compares five forecasting models — stepwise regression, simple and double exponential smoothing, ARIMA/IMA, and transfer function — using 10 years of quarterly financial and macroeconomic data to predict Tesla's quarterly stock returns.",
+    "date": "2025-May",
+    "featured": true,
+    "tags": ["Predictive Modeling", "Time Series", "Regression", "Financial Analytics"],
+    "github": "",
+    "tools": ["JMP"],
+    "metrics": [
+      { "label": "Best model adjusted R-squared", "value": "0.18" },
+      { "label": "Best model RMSE", "value": "46.89" },
+      { "label": "Quarters of data", "value": "39" }
+    ],
+    "sections": {
+      "overview": "A financial forecasting project that attempts to predict Tesla's quarterly stock return using approximately 10 years of quarterly data. The analysis combines company-specific financial metrics and broader macroeconomic indicators, all transformed into quarter-over-quarter changes, and evaluates five different modeling approaches — stepwise regression, simple exponential smoothing, double exponential smoothing, ARIMA/IMA, and transfer function — against each other using standard model performance metrics.",
+      "problem": "Can Tesla's quarterly stock return be meaningfully predicted using a selected set of financial and macroeconomic variables? And if so, which modeling approach — regression or time-series — does the best job of capturing whatever signal exists in the data?",
+      "approach": "All variables were transformed into quarter-over-quarter first differences to capture dynamics rather than static levels, and confirmed stationary before modeling. Five modeling approaches were then built and compared on the same data using R-squared, RMSE, and AICc as the evaluation criteria — with stationarity testing, residual diagnostics, VIF, and Durbin-Watson checks applied throughout.",
+      "methodology": [
+        "Selected eight variables — Tesla quarterly stock return (dependent), change in net income, change in free cash flow, change in S&P 500, change in 10-year Treasury yield, change in crude oil price, change in consumer sentiment index, and change in U.S. motor vehicle sales — and transformed all into quarter-over-quarter changes.",
+        "Confirmed stationarity of all variables using Augmented Dickey-Fuller tests, ACF plots, and variogram analysis before any modeling was performed.",
+        "Built a stepwise regression model using forward/backward AIC-based selection, which converged on the same three predictors regardless of direction: change in net income, change in crude oil price, and change in consumer sentiment index.",
+        "Ran simple and double (Brown) exponential smoothing models and compared forecasted values against actual quarterly returns.",
+        "Used JMP's ARIMA Group procedure to evaluate 27 ARIMA/IMA model specifications and select the best-fitting one based on lowest AIC.",
+        "Built a transfer function model on the regression residuals, using ACF and PACF diagnostics to determine the appropriate noise structure."
+      ],
+      "results": {
+        "summary": "The stepwise regression model outperformed all other approaches, but its explanatory power remained limited. All time-series models — exponential smoothing, ARIMA/IMA, and transfer function — produced negative R-squared values, indicating they performed worse than simply predicting the mean return.",
+        "points": [
+          "Regression: Adjusted R-squared of 0.18, RMSE of 46.89, AICc of 418.42 — best overall.",
+          "Simple exponential smoothing: R-squared of -0.04, RMSE of 87.11.",
+          "Double exponential smoothing: R-squared of -0.16, RMSE of 95.42.",
+          "IMA(2,2): R-squared of -0.08, RMSE of 112.50, selected from 27 evaluated models.",
+          "Transfer function: R-squared of -0.09, RMSE of 76.84 — regression residuals showed no exploitable autocorrelation structure."
+        ]
+      },
+      "lessons": [
+        "Regression outperformed time-series approaches here because Tesla's returns don't follow consistent time-based patterns — smoothing and ARIMA models assume more regularity than the data actually has.",
+        "Even the best model explained only 18% of the variation in Tesla's quarterly returns, highlighting that stock returns are heavily influenced by unpredictable factors — investor sentiment, news events, regulatory changes — that financial and macroeconomic variables alone cannot capture."
+      ]
+    }
+  },
   {
     "id": "investment-portfolio-optimization",
     "title": "Investment Portfolio Optimization using Linear Optimization and Monte Carlo Simulation",
