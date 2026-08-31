@@ -1,80 +1,42 @@
-[{
-    "id": "bayesian-black-scholes-option-pricing",
-    "title": "Bayesian Volatility + Monte Carlo Black-Scholes Option Pricing",
-    "summary": "Prices a real, currently-traded AAPL call option by treating volatility as uncertain rather than fixed — building a Bayesian posterior over volatility from comparable-stock data and AAPL's own returns, then propagating 10,000 posterior samples through Black-Scholes and checking the result against the real market price.",
-    "date": "2026-August",
-    "featured": true,
-    "tags": ["Bayesian Inference", "Options Pricing", "Monte Carlo Simulation", "Python"],
-    "github": "https://github.com/Mohammad-Shekh007/Bayesian-Volatility-Monte-Carlo-Black-Scholes-Option-Pricing",
-    "tools": ["Python", "yfinance", "NumPy", "SciPy", "Matplotlib"],
-    "metrics": [
-      { "label": "Monte Carlo simulations", "value": "10,000" },
-      { "label": "Posterior annualized volatility", "value": "27.5%" },
-      { "label": "Simulated mean vs. real market price", "value": "$10.99 vs. $10.00" }
-    ],
-    "sections": {
-      "overview": "A Bayesian extension of the Black-Scholes model that treats volatility as an uncertain quantity with its own probability distribution, rather than a single fixed guess. The distribution is built through a conjugate Bayesian update, sampled 10,000 times via Monte Carlo, and run through Black-Scholes to produce a full distribution of option prices — validated against a real, live AAPL option contract.",
-      "problem": "Standard Black-Scholes requires one volatility number and returns one price, with no way to express how confident that estimate actually is. The question here was whether a defensible, closed-form Bayesian model could produce a realistic range of option prices instead of a single point estimate — and whether that range would actually contain the real market price.",
-      "approach": "Rather than estimating AAPL's volatility from its own historical data alone (which risks circularity when that same data is later used as evidence), I built the prior from four comparable large-cap tech stocks — Microsoft, Google, Meta, and Amazon — over the same period, then updated it with AAPL's own 125 daily returns using a conjugate Bayesian model for unknown variance. This keeps the prior and the evidence genuinely independent while still landing on a closed-form, exact posterior.",
-      "methodology": [
-        "Pulled 6 months of daily price data for AAPL and 4 comparable stocks, and calculated daily returns for each.",
-        "Built an empirical Bayes prior from the 4 comparable stocks' volatilities, and combined it with AAPL's own 125 daily returns using a Normal-Scaled-Inverse-Chi-Squared conjugate update — the standard closed-form Bayesian model for unknown variance.",
-        "Drew 10,000 volatility values from the resulting posterior distribution via Monte Carlo sampling.",
-        "Pulled AAPL's real spot price, the 13-week Treasury yield as the risk-free rate, and an actual currently-traded AAPL call option (strike and expiration), then ran Black-Scholes once per sampled volatility to produce a distribution of 10,000 simulated option prices.",
-        "Compared the simulated price distribution against the option's real, live market price as a validation check."
-      ],
-      "results": {
-        "summary": "The posterior volatility estimate (27.5% annualized) landed close to the option's own market-implied volatility (26.6%), and the real market price of the option fell just inside the lower edge of the simulated 10,000-price distribution.",
-        "points": [
-          "Posterior annualized volatility of 27.5%, versus the market's own implied volatility of 26.6% for the same contract.",
-          "Simulated mean call price of $10.99, with a 90% simulated range of $9.97–$12.11.",
-          "Real market price of $10.00 fell inside that simulated range, close to the lower bound."
-        ]
-      },
-      "lessons": [
-        "Using a stock's own historical data to build its own Bayesian prior is circular if that same data is later reused as evidence — building the prior from comparable stocks instead avoids double-counting the same information.",
-        "A conjugate Bayesian model was deliberately chosen over a more complex stochastic-volatility/MCMC approach — the closed-form solution is exact and fully verifiable rather than approximate, and the assumptions justified the simpler choice."
-      ]
-    }
-},
+[
   {
-    "id": "credit-default-prediction",
-    "title": "Credit Default Prediction",
-    "summary": "A logistic regression model that predicts loan default risk on the German Credit dataset, narrowing 20 candidate variables down to 6 statistically significant predictors through best-subset selection.",
-    "date": "2026-July",
+    "id": "knowledge-graph-rag",
+    "title": "Knowledge Graph vs. Vector RAG: A Graph-Based Retrieval Chatbot",
+    "summary": "A Streamlit chatbot that answers questions by reasoning over a Neo4j knowledge graph rather than plain vector similarity — the knowledge-graph implementation from a broader comparative RAG study presented at NY UPSTATE 2026.",
+    "date": "2026-March",
     "featured": true,
-    "tags": ["Logistic Regression", "Credit Risk", "Python"],
-    "github": "https://github.com/Mohammad-Shekh007/Credit-Default-Analysis",
-    "tools": ["Python", "statsmodels", "scikit-learn"],
+    "tags": ["RAG", "Knowledge Graphs", "LLM", "Neo4j"],
+    "github": "https://github.com/Mohammad-Shekh007/Knowledge-Graph-RAG/tree/main",
+    "tools": ["Neo4j", "OpenAI (GPT-4o-mini)", "Streamlit", "Python"],
     "metrics": [
-      { "label": "Test AUC", "value": "0.714" },
-      { "label": "Variables selected", "value": "6 of 20" },
-      { "label": "Test misclassification rate", "value": "27.0%" }
+      { "label": "Pipeline stages", "value": "7" },
+      { "label": "Max reasoning hops", "value": "2" },
+      { "label": "Demo domain", "value": "COVID-19 KG" }
     ],
     "sections": {
-      "overview": "A logistic regression model that estimates the probability a loan applicant will default, built on the classic German Credit dataset. The focus was on interpretability — arriving at a small set of variables where each one is statistically justified, not just whatever a black-box model happened to weight.",
-      "problem": "Which applicant and loan characteristics are genuinely, independently associated with credit default — and can a lean, interpretable model still separate good and bad credit risk reasonably well?",
-      "approach": "Rather than manual variable picking or a single stepwise pass, I used best-subset selection to search across combinations of all 20 original variables at once, treating each categorical variable as one unit rather than selecting individual category levels. I then layered a statistical significance check on top of the selected set to arrive at a final model where every remaining variable earns its place.",
+      "overview": "This repository implements the knowledge-graph half of a broader comparative study of vector-based versus graph-based retrieval-augmented generation, presented at NY UPSTATE 2026. It's a Streamlit chatbot that answers questions by traversing an explicit Neo4j knowledge graph — built here on a COVID-19 dataset — instead of relying solely on semantic similarity search. A live demo is deployed and linked in the repo.",
+      "problem": "Standard vector RAG retrieves text by similarity, but struggles with three things: understanding how entities are actually connected, tracing multi-step cause-and-effect chains, and explaining why a given answer was produced rather than just reporting a similarity score. The research question was whether representing knowledge explicitly as a graph of typed relationships could address those three gaps, and how that approach compares against a standard vector-retrieval baseline.",
+      "approach": "The conference work compared a vector-retrieval baseline against a graph-based pipeline built specifically to support multi-hop reasoning and auditability; this repo contains the graph-based system. It treats vector and graph retrieval as complementary rather than competing — vector similarity is still used for one step (matching a query to relevant entities), but the actual reasoning proceeds by traversing typed, explicit relationships in the graph, producing an answer with a visible chain of evidence rather than an opaque similarity match. The full comparative results are detailed in the accompanying conference presentation included in the repo.",
       "methodology": [
-        "Loaded the German Credit dataset (1,000 applicants, 20 predictor variables), log-transformed the two skewed continuous variables (loan amount, age), and one-hot encoded the categorical predictors.",
-        "Split the data 60/20/20 into train/validation/test, then ran best-subset selection (via the abess algorithm) across all 20 variables, cross-validating to choose how many to keep.",
-        "Refit the selected variables in an unpenalized logistic regression to get real p-values and odds ratios, then iteratively removed any variable that wasn't statistically significant, refitting until everything remaining cleared p < 0.05.",
-        "Checked the final model for multicollinearity with VIF, then evaluated discrimination (ROC AUC) and error rate separately on held-out validation and test sets."
+        "Rewrite and expand the user's query into retrieval-friendly phrasings (GPT-4o-mini) to widen recall against graph terminology.",
+        "Run hybrid entity retrieval — Neo4j vector similarity search over entity embeddings, combined with keyword/substring matching — to identify the relevant nodes in the graph.",
+        "Retrieve 1-hop neighbor facts for matched entities, then explicitly traverse 2-hop paths to surface multi-step cause-effect and dependency chains.",
+        "Rerank the retrieved facts and paths with an LLM to keep only the evidence most relevant to the query, then generate an answer constrained to that evidence, with citations and a full debug trace exposed in the UI."
       ],
       "results": {
-        "summary": "The final model kept 6 of the original 20 variables — loan amount, age, checking account balance, credit history, loan purpose, and installment plan — each statistically significant, with no meaningful multicollinearity between them.",
+        "summary": "The graph-based pipeline produces answers grounded in explicit, inspectable evidence chains rather than similarity scores, directly addressing the multi-hop reasoning and explainability gaps that motivated the comparative study. Quantitative comparison metrics against the vector-RAG baseline are presented in the accompanying conference presentation.",
         "points": [
-          "Test set ROC AUC of 0.714, with train (0.790) and validation (0.778) close behind, indicating stable, non-overfit discrimination.",
-          "Misclassification rate held steady between 23.5% and 27% across train, validation, and test.",
-          "Reduced 20 candidate variables to 6 significant predictors using best-subset selection rather than a manual or purely stepwise search."
+          "Every answer is generated only from retrieved facts/paths and returned alongside the specific evidence used, reducing hallucination.",
+          "A full pipeline trace — rewritten query, expansions, retrieved entities, facts, and paths — is exposed via a debug panel for inspection.",
+          "Deployed as a live, publicly accessible demo rather than a local-only notebook."
         ]
       },
       "lessons": [
-        "Best-subset selection with grouped categorical variables avoided the awkward 'some category levels survive, others don't' problem that methods like Lasso can create.",
-        "Statistical significance is context-dependent, not absolute — one variable lost significance only after other correlated variables were removed, a good reminder that a p-value describes a variable's role in a specific model, not a fixed property of the variable itself."
+        "A knowledge graph's usefulness is only as good as the extraction step that built it — this project focused on the retrieval/reasoning layer, and graph quality remains the main bottleneck for scaling to new domains.",
+        "Vector and graph retrieval aren't really competitors — the strongest version of this system used vector similarity for entity matching and graph traversal for reasoning, rather than picking one exclusively."
       ]
     }
-},
+}, 
   {
     "id": "investment-portfolio-optimization",
     "title": "Investment Portfolio Optimization using Linear Optimization and Monte Carlo Simulation",
@@ -150,41 +112,81 @@
       ]
     }
 },
-{
-    "id": "knowledge-graph-rag",
-    "title": "Knowledge Graph vs. Vector RAG: A Graph-Based Retrieval Chatbot",
-    "summary": "A Streamlit chatbot that answers questions by reasoning over a Neo4j knowledge graph rather than plain vector similarity — the knowledge-graph implementation from a broader comparative RAG study presented at NY UPSTATE 2026.",
-    "date": "2026-March",
+
+    {
+    "id": "bayesian-black-scholes-option-pricing",
+    "title": "Bayesian Volatility + Monte Carlo Black-Scholes Option Pricing",
+    "summary": "Prices a real, currently-traded AAPL call option by treating volatility as uncertain rather than fixed — building a Bayesian posterior over volatility from comparable-stock data and AAPL's own returns, then propagating 10,000 posterior samples through Black-Scholes and checking the result against the real market price.",
+    "date": "2026-August",
     "featured": true,
-    "tags": ["RAG", "Knowledge Graphs", "LLM", "Neo4j"],
-    "github": "https://github.com/Mohammad-Shekh007/Knowledge-Graph-RAG/tree/main",
-    "tools": ["Neo4j", "OpenAI (GPT-4o-mini)", "Streamlit", "Python"],
+    "tags": ["Bayesian Inference", "Options Pricing", "Monte Carlo Simulation", "Python"],
+    "github": "https://github.com/Mohammad-Shekh007/Bayesian-Volatility-Monte-Carlo-Black-Scholes-Option-Pricing",
+    "tools": ["Python", "yfinance", "NumPy", "SciPy", "Matplotlib"],
     "metrics": [
-      { "label": "Pipeline stages", "value": "7" },
-      { "label": "Max reasoning hops", "value": "2" },
-      { "label": "Demo domain", "value": "COVID-19 KG" }
+      { "label": "Monte Carlo simulations", "value": "10,000" },
+      { "label": "Posterior annualized volatility", "value": "27.5%" },
+      { "label": "Simulated mean vs. real market price", "value": "$10.99 vs. $10.00" }
     ],
     "sections": {
-      "overview": "This repository implements the knowledge-graph half of a broader comparative study of vector-based versus graph-based retrieval-augmented generation, presented at NY UPSTATE 2026. It's a Streamlit chatbot that answers questions by traversing an explicit Neo4j knowledge graph — built here on a COVID-19 dataset — instead of relying solely on semantic similarity search. A live demo is deployed and linked in the repo.",
-      "problem": "Standard vector RAG retrieves text by similarity, but struggles with three things: understanding how entities are actually connected, tracing multi-step cause-and-effect chains, and explaining why a given answer was produced rather than just reporting a similarity score. The research question was whether representing knowledge explicitly as a graph of typed relationships could address those three gaps, and how that approach compares against a standard vector-retrieval baseline.",
-      "approach": "The conference work compared a vector-retrieval baseline against a graph-based pipeline built specifically to support multi-hop reasoning and auditability; this repo contains the graph-based system. It treats vector and graph retrieval as complementary rather than competing — vector similarity is still used for one step (matching a query to relevant entities), but the actual reasoning proceeds by traversing typed, explicit relationships in the graph, producing an answer with a visible chain of evidence rather than an opaque similarity match. The full comparative results are detailed in the accompanying conference presentation included in the repo.",
+      "overview": "A Bayesian extension of the Black-Scholes model that treats volatility as an uncertain quantity with its own probability distribution, rather than a single fixed guess. The distribution is built through a conjugate Bayesian update, sampled 10,000 times via Monte Carlo, and run through Black-Scholes to produce a full distribution of option prices — validated against a real, live AAPL option contract.",
+      "problem": "Standard Black-Scholes requires one volatility number and returns one price, with no way to express how confident that estimate actually is. The question here was whether a defensible, closed-form Bayesian model could produce a realistic range of option prices instead of a single point estimate — and whether that range would actually contain the real market price.",
+      "approach": "Rather than estimating AAPL's volatility from its own historical data alone (which risks circularity when that same data is later used as evidence), I built the prior from four comparable large-cap tech stocks — Microsoft, Google, Meta, and Amazon — over the same period, then updated it with AAPL's own 125 daily returns using a conjugate Bayesian model for unknown variance. This keeps the prior and the evidence genuinely independent while still landing on a closed-form, exact posterior.",
       "methodology": [
-        "Rewrite and expand the user's query into retrieval-friendly phrasings (GPT-4o-mini) to widen recall against graph terminology.",
-        "Run hybrid entity retrieval — Neo4j vector similarity search over entity embeddings, combined with keyword/substring matching — to identify the relevant nodes in the graph.",
-        "Retrieve 1-hop neighbor facts for matched entities, then explicitly traverse 2-hop paths to surface multi-step cause-effect and dependency chains.",
-        "Rerank the retrieved facts and paths with an LLM to keep only the evidence most relevant to the query, then generate an answer constrained to that evidence, with citations and a full debug trace exposed in the UI."
+        "Pulled 6 months of daily price data for AAPL and 4 comparable stocks, and calculated daily returns for each.",
+        "Built an empirical Bayes prior from the 4 comparable stocks' volatilities, and combined it with AAPL's own 125 daily returns using a Normal-Scaled-Inverse-Chi-Squared conjugate update — the standard closed-form Bayesian model for unknown variance.",
+        "Drew 10,000 volatility values from the resulting posterior distribution via Monte Carlo sampling.",
+        "Pulled AAPL's real spot price, the 13-week Treasury yield as the risk-free rate, and an actual currently-traded AAPL call option (strike and expiration), then ran Black-Scholes once per sampled volatility to produce a distribution of 10,000 simulated option prices.",
+        "Compared the simulated price distribution against the option's real, live market price as a validation check."
       ],
       "results": {
-        "summary": "The graph-based pipeline produces answers grounded in explicit, inspectable evidence chains rather than similarity scores, directly addressing the multi-hop reasoning and explainability gaps that motivated the comparative study. Quantitative comparison metrics against the vector-RAG baseline are presented in the accompanying conference presentation.",
+        "summary": "The posterior volatility estimate (27.5% annualized) landed close to the option's own market-implied volatility (26.6%), and the real market price of the option fell just inside the lower edge of the simulated 10,000-price distribution.",
         "points": [
-          "Every answer is generated only from retrieved facts/paths and returned alongside the specific evidence used, reducing hallucination.",
-          "A full pipeline trace — rewritten query, expansions, retrieved entities, facts, and paths — is exposed via a debug panel for inspection.",
-          "Deployed as a live, publicly accessible demo rather than a local-only notebook."
+          "Posterior annualized volatility of 27.5%, versus the market's own implied volatility of 26.6% for the same contract.",
+          "Simulated mean call price of $10.99, with a 90% simulated range of $9.97–$12.11.",
+          "Real market price of $10.00 fell inside that simulated range, close to the lower bound."
         ]
       },
       "lessons": [
-        "A knowledge graph's usefulness is only as good as the extraction step that built it — this project focused on the retrieval/reasoning layer, and graph quality remains the main bottleneck for scaling to new domains.",
-        "Vector and graph retrieval aren't really competitors — the strongest version of this system used vector similarity for entity matching and graph traversal for reasoning, rather than picking one exclusively."
+        "Using a stock's own historical data to build its own Bayesian prior is circular if that same data is later reused as evidence — building the prior from comparable stocks instead avoids double-counting the same information.",
+        "A conjugate Bayesian model was deliberately chosen over a more complex stochastic-volatility/MCMC approach — the closed-form solution is exact and fully verifiable rather than approximate, and the assumptions justified the simpler choice."
+      ]
+    }
+}, 
+    {
+    "id": "credit-default-prediction",
+    "title": "Credit Default Prediction",
+    "summary": "A logistic regression model that predicts loan default risk on the German Credit dataset, narrowing 20 candidate variables down to 6 statistically significant predictors through best-subset selection.",
+    "date": "2026-July",
+    "featured": true,
+    "tags": ["Logistic Regression", "Credit Risk", "Python"],
+    "github": "https://github.com/Mohammad-Shekh007/Credit-Default-Analysis",
+    "tools": ["Python", "statsmodels", "scikit-learn"],
+    "metrics": [
+      { "label": "Test AUC", "value": "0.714" },
+      { "label": "Variables selected", "value": "6 of 20" },
+      { "label": "Test misclassification rate", "value": "27.0%" }
+    ],
+    "sections": {
+      "overview": "A logistic regression model that estimates the probability a loan applicant will default, built on the classic German Credit dataset. The focus was on interpretability — arriving at a small set of variables where each one is statistically justified, not just whatever a black-box model happened to weight.",
+      "problem": "Which applicant and loan characteristics are genuinely, independently associated with credit default — and can a lean, interpretable model still separate good and bad credit risk reasonably well?",
+      "approach": "Rather than manual variable picking or a single stepwise pass, I used best-subset selection to search across combinations of all 20 original variables at once, treating each categorical variable as one unit rather than selecting individual category levels. I then layered a statistical significance check on top of the selected set to arrive at a final model where every remaining variable earns its place.",
+      "methodology": [
+        "Loaded the German Credit dataset (1,000 applicants, 20 predictor variables), log-transformed the two skewed continuous variables (loan amount, age), and one-hot encoded the categorical predictors.",
+        "Split the data 60/20/20 into train/validation/test, then ran best-subset selection (via the abess algorithm) across all 20 variables, cross-validating to choose how many to keep.",
+        "Refit the selected variables in an unpenalized logistic regression to get real p-values and odds ratios, then iteratively removed any variable that wasn't statistically significant, refitting until everything remaining cleared p < 0.05.",
+        "Checked the final model for multicollinearity with VIF, then evaluated discrimination (ROC AUC) and error rate separately on held-out validation and test sets."
+      ],
+      "results": {
+        "summary": "The final model kept 6 of the original 20 variables — loan amount, age, checking account balance, credit history, loan purpose, and installment plan — each statistically significant, with no meaningful multicollinearity between them.",
+        "points": [
+          "Test set ROC AUC of 0.714, with train (0.790) and validation (0.778) close behind, indicating stable, non-overfit discrimination.",
+          "Misclassification rate held steady between 23.5% and 27% across train, validation, and test.",
+          "Reduced 20 candidate variables to 6 significant predictors using best-subset selection rather than a manual or purely stepwise search."
+        ]
+      },
+      "lessons": [
+        "Best-subset selection with grouped categorical variables avoided the awkward 'some category levels survive, others don't' problem that methods like Lasso can create.",
+        "Statistical significance is context-dependent, not absolute — one variable lost significance only after other correlated variables were removed, a good reminder that a p-value describes a variable's role in a specific model, not a fixed property of the variable itself."
       ]
     }
 }
