@@ -37,14 +37,14 @@
       ]
     }
 }, 
-  {
+ {
     "id": "tesla-stock-return-predictive-modeling",
     "title": "Tesla Stock Return Predictive Modeling",
     "summary": "Builds and compares five forecasting models — stepwise regression, simple and double exponential smoothing, ARIMA/IMA, and transfer function — using 10 years of quarterly financial and macroeconomic data to predict Tesla's quarterly stock returns.",
     "date": "2025-May",
     "featured": true,
     "tags": ["Predictive Modeling", "Time Series", "Regression", "Financial Analytics"],
-    "github": "",
+    "github": "https://github.com/Mohammad-Shekh007/Tesla-Quarterly-Return-Forecasting-A-Multi-Model-Time-Series-Comparison",
     "tools": ["JMP"],
     "metrics": [
       { "label": "Best model adjusted R-squared", "value": "0.18" },
